@@ -1,4 +1,7 @@
 <?php
+    //引用数据库信息文件
+    require_once 'DataBaseInfo.php';
+
     header("Content-type: text/html; charset=utf-8"); 
 
     //【网站用户注册】
@@ -8,7 +11,7 @@
     //注册昵称    reName
        
     //此处配置数据库连接信息，注意修改配置。
-    $link = new mysqli("localhost","root","","CNTA");
+    $link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
     
     if( !$link ){
         die("连接数据库失败</br>".mysqli_connect_error($link));
@@ -37,8 +40,10 @@
         $link->close();
         die();
     }
+
+    mysqli_free_result( $res);
     
-    $link->close();
+    mysqli_close( $link);
 
     echo "恭喜你！你已成功注册成都理工计协网上会员！";
 
