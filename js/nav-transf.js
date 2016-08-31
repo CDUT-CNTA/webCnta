@@ -19,4 +19,40 @@ function startFadeBg(obj,iTarget,callback)  //淡入淡出函数
 	},30);
 	callback();			//执行回调函数
 }
-	
+function navChange(bool,oMove,oNavA,obj)
+{
+	if(bool==true){
+		
+		startFadeBg(oMove,100,function ()	
+		{
+			for(var i=0;i<oNavA.length;i++)
+			{
+				oNavA[i].style.color="#999";
+			}
+			if(obj.className=="nav_login"){
+				obj.style.background="url(images/loginhover.png) no-repeat";
+				obj.style.backgroundSize="70%";
+			}
+			else{
+				obj.attr('src','images/logged_checked.png');
+			}
+		});
+	}
+	else{
+		
+		startFadeBg(oMove,0,function ()	
+		{
+			for(var i=0;i<oNavA.length;i++)
+			{
+					oNavA[i].style.color="#fff";
+			}
+			if(obj.className=="nav_login"){
+				obj.style.background="url(images/login.png) no-repeat";
+				obj.style.backgroundSize="70%";
+			}
+			else{
+				obj.attr('src', 'images/logged.png');
+			}
+		});
+	}
+}

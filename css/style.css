@@ -78,7 +78,7 @@ body {
 }
 .nav_login {
 	width:12rem;
-	height:4rem;
+	height:3rem;
 	margin-top:1.3rem;
 	background: url(../images/login.png) no-repeat;
 	background-size: 70%;
@@ -404,4 +404,35 @@ body {
 	height: 40px;
 	float:right;
 	margin-top: 1rem;
+}
+.nav_logined_group {
+	width: 4rem;
+	padding: 1rem;
+	position: absolute;
+	top:100%;
+	right: 0;
+	background: #fff;
+	border-radius:3px;
+	 -moz-border-radius: 3px;
+	 -webkit-border-radius: 3px;
+	 border:1px solid #999;
+	 display: none;
+}
+.nav_logined_group ul li {
+	height:2rem;
+	text-align: center;
+	line-height: 2rem;
+	list-style:none;
+	font-size: 1.2rem;
+}
+.nav_logined_group ul li:first-child {
+	border-bottom: 1px dotted #ccc;
+}
+.nav_logined_group ul li a {
+	color:#999;
+	text-decoration: none;
+}
+.nav_logined_group ul li a:hover {
+	color:#ff6060;
+	text-decoration: none;
 }

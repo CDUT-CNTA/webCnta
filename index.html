@@ -32,8 +32,10 @@
 				</ul>
 			</div>
 			<!-- nav_content end -->
-			<div class="nav_login">
-				<a id="nav_login_a">登录</a>
+			<div id="waitToRefresh">
+				<div class="nav_login">
+					<a id="nav_login_a">登录</a>
+				</div>
 			</div>
 			<!-- nav_login end -->
 			<div class="nav_move">
@@ -159,7 +161,7 @@
 <div class="login" style="display:none">
 	<div class="login_cover"></div>
 	<div class="login_open">
-		<form action="Login.php" method="post">
+		<form action="Login.php" method="post" id="loginIn">
 			<i class="login_close"></i>
 			<label class="login_open_label">登录</label>
 			<input type="name"	name="logText" placeholder="学号/邮箱/昵称" class="login_open_name" required="required"/>
@@ -186,8 +188,9 @@
 </div>
 <!-- login end -->
 <script type="text/javascript" src="js/lib/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="js/onload.js"></script>
 <script type="text/javascript" src="js/nav-transf.js"></script>
 <script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript" src="js/onload.js"></script>
+<script type="text/javascript" src="js/onload_logined.js"></script>
 </body>
 </html>

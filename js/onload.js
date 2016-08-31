@@ -45,40 +45,29 @@ jQuery(document).ready(function($) {
 	var oNav=$(".nav")[0];
 	var oMove=$(".nav_bg")[0];
 	var oNavA=$(".nav a");
+	var oLogin=$(".nav_login")[0];
+	var judge=$("#waitToRefresh")[0];
 
 	oMove.alpha=0;
 	oMove.timer=null;
 	//导航栏绑定事件
-	var oFun=new Function();
 
-	oNav.onmouseover=function(){
-		startFadeBg(oMove,100,function ()
-		{
-			for(var i=0;i<oNavA.length;i++)
-			{
-					oNavA[i].style.color="#999";
-			}
-			if($(".nav_login")[0]){
-				$(".nav_login")[0].style.background="url(images/loginhover.png) no-repeat";
-				$(".nav_login")[0].style.backgroundSize="70%";
-			}
-			$(".nav_logined img").attr("src","images/logged_checked.png");
-		});
-	}
-	oNav.onmouseout=function(){
-		startFadeBg(oMove,0,function ()	
-		{
-			for(var i=0;i<oNavA.length;i++)
-			{
-					oNavA[i].style.color="#fff";
-			}
-			if($(".nav_login")[0]){
-				$(".nav_login")[0].style.background="url(images/login.png) no-repeat";
-				$(".nav_login")[0].style.backgroundSize="70%";
-			}
-			$(".nav_logined img").attr("src","images/logged.png");
-		});
-	}
+	$(".nav").on('mouseover', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		if(judge.className!="Refreshed"){
+			navChange(true,oMove,oNavA,oLogin);
+		}
+	});
+	$(".nav").on('mouseout', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		if(judge.className!="Refreshed"){
+			navChange(false,oMove,oNavA,oLogin);
+		}
+	});
+
+	//if(oLogined) logined(oLogined,oNav,oMove,oLogin,oLoginedImg,oLoginedJq);
 
 	if($("#nav_login_a")){
 		$("#nav_login_a").on('click', function(event) {
@@ -103,4 +92,49 @@ jQuery(document).ready(function($) {
 			$(".sign_open")[0].style.display="none";
 		});
 	}
+
+	$("#loginIn").on('submit', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		var val=$(".login_open_name").val();
+        var url = "logined_img.php";
+        var data = {type:1};
+        $.ajax({
+            type : "get",
+            async : false,  //同步请求
+            url : url,
+            data : data,
+            timeout:1000,
+            success:function(dates){
+                $("#waitToRefresh").html(dates);//要刷新的div
+            },
+            error: function() {
+               alert("失败，请稍后再试！");
+            }
+        });
+		//登录后的交互改变
+        $("#waitToRefresh").addClass('Refreshed');
+
+        $(".nav_logined img").on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		$(".nav_logined_group").slideToggle("fast");
+		});
+
+        var oLoginedImg=$(".nav_logined img");
+
+		$(".nav").on('mouseover', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			navChange(true,oMove,oNavA,oLoginedImg);
+		});
+		$(".nav").on('mouseout', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			if($(".nav_logined_group")[0].style.display!="block")
+			navChange(false,oMove,oNavA,oLoginedImg);
+		});
+	});
+
+
 });
