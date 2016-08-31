@@ -1,4 +1,10 @@
 <?php
+    //开启会话
+    session_start();
+    
+    //引用数据库信息文件
+    require_once 'DataBaseInfo.php';
+
     header("Content-type: text/html; charset=utf-8"); 
 
     //【登录验证】
@@ -8,7 +14,7 @@
 
         
     //此处配置数据库连接信息，注意修改配置。
-    $link = new mysqli("localhost","root","","mysql");
+    $link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
     
     if( !$link ){
         die("连接数据库失败</br>".mysqli_connect_error($link));
@@ -26,23 +32,22 @@
     //     die();
     // }
 
-    $sql = "SELECT `logID`, `logEmail`, `logPwd`, `logName` FROM `cnta-web-login` WHERE `logEmail` = '".$_POST['logText']."' ";
+    $sql = "SELECT `logID`, `logEmail`, `logPwd`, `logName` FROM `cnta-web-login` WHERE `logEmail` = '".$_POST['logText']."' AND `logPwd` = '".$_POST['logPwd']."'";
     
     $res = mysqli_query( $link, $sql);
 
     $logInfo = mysqli_fetch_assoc( $res);
 
-    if( $logInfo['logID'] ){
-        if($_POST['logPwd'] == $logInfo['logPwd']){
+    if( mysqli_num_rows( $res) == 1 ){
             echo "登陆成功";
-        }else{
-            echo "密码不正确，请重新输入密码。";
-        }
+
     }else{
-        echo "不存在此用户，请输入正确的登录名。";
+        echo "用户名或密码错误，请重新登陆。";
     }
+
+    mysqli_free_result( $res);
     
-    $link->close();
+    mysqli_close( $link);
     
     die();
 

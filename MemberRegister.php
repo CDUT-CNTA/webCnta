@@ -1,4 +1,7 @@
 <?php
+    //引用数据库信息文件
+    require_once 'DataBaseInfo.php';
+    
     header("Content-type: text/html; charset=utf-8"); 
 
     //【会员信息注册】
@@ -13,7 +16,7 @@
     //其中会员的登陆密码默认为学号，登陆昵称默认为真实姓名
  
     //此处配置数据库连接信息，注意修改配置。
-    $link = new mysqli("localhost","root","","CNTA");
+    $link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
     if( !$link ){
         die("连接数据库失败</br>".mysqli_connect_error($link));
@@ -70,7 +73,9 @@
     
     mysqli_query( $link, $sql);
 
-    $link->close();
+    mysqli_free_result( $res);
+
+    mysqli_close( $link);
     
     echo "恭喜你！计协会员信息注册成功，你现在已经是计协会员了，你可以使用你的邮箱登陆计协网站，默认密码是你的学号。祝你的大学生活快乐，O(∩_∩)O谢谢。";
     
