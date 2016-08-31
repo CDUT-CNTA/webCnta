@@ -1,13 +1,13 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-size:1em;
-	font-family: "Century Gothic","Lucida Grande","Microsoft YaHei","Trebuchet MS",Helvetica,Georgia,sans-serif;
 }
 body {
 	min-width: 1180px;
 	height:100vh;
 	overflow-y: hidden;
+	font-size:1rem;
+	font-family: "Century Gothic","Lucida Grande","Microsoft YaHei","Trebuchet MS",Helvetica,Georgia,sans-serif;
 }
 /*head begin*/
 .nav {
@@ -397,4 +397,11 @@ body {
 	text-align: center;
 	margin:0 auto;
 	padding-top: 10px;
+}
+/*backward begin*/
+.nav_logined img {
+	width: 40px;
+	height: 40px;
+	float:right;
+	margin-top: 1rem;
 }

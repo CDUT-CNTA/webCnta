@@ -6,6 +6,12 @@
 	<title>成都理工大学计算机与网络科技协会</title>
 	<link rel="Shortcut icon" href="images/ico.png">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript">
+    	window.onbeforeunload = onbeforeunload_handler;
+    	function onbeforeunload_handler(){
+        	window.scrollTo(0,0);
+    	}
+	</script>
 </head>
 <body>
 <div class="head">
@@ -171,8 +177,8 @@
 			<i class="login_close"></i>
 			<label class="login_open_label">请先注册</label>
 			<input type="name"	name="reName"	placeholder="昵称" class="login_open_name" required="required"/>
-			<input type="password"	name="reEmail"	placeholder="邮箱" required="required"/>
-			<input type="text"	name="rePwd"	placeholder="密码"  minlength="6" required="required"/>
+			<input type="text"	name="reEmail"	placeholder="邮箱" required="required"/>
+			<input type="password"	name="rePwd"	placeholder="密码"  minlength="6" required="required"/>
 			<button type="submit">注册</button>
 			<a href="#" id="login_open_in">用已有账号登录</a>
 		</form>
