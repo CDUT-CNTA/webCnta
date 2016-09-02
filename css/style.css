@@ -10,6 +10,13 @@ body {
 	font-family: "Century Gothic","Lucida Grande","Microsoft YaHei","Trebuchet MS",Helvetica,Georgia,sans-serif;
 }
 /*head begin*/
+.head:after {
+	content: "";
+	height:4.7rem;
+	visibility: hidden;
+	display: block;
+	clear:both;
+}
 .nav {
 	width:100%;
 	min-width: 100%;
@@ -52,10 +59,19 @@ body {
 .nav_login a
  {
  	font-size: 1.2rem;
-	color:#fff;
 	cursor:pointer;
 	text-decoration: none;
 	z-index: 5;
+}
+.nav_change {
+	color:#999;
+}
+.nav_changed {
+	color:#fff;
+}
+.nav_content li a:hover,
+.nav_login a:hover {
+	color:#ff6060;
 }
 .nav_bg,
 .nav_logo img,
@@ -435,4 +451,45 @@ body {
 .nav_logined_group ul li a:hover {
 	color:#ff6060;
 	text-decoration: none;
+}
+/**************************************************************/
+/*list begin*/
+.list_body {
+	height:auto;
+	overflow:auto;
+}
+/*list_nav begin*/
+.list_nav {
+	position: absolute;
+	top:0;
+}
+.list_nav_content li {
+	width:5rem;
+	padding-left:4rem;
+	list-style-type:none;
+	font-size:1.2em;
+	color: #999;
+	text-align: center;
+	line-height: 4.7rem;
+}
+.list_nav_content li a,
+.list_nav_login a
+ {
+ 	font-size: 1.2rem;
+	color:#999;
+	cursor:pointer;
+	text-decoration: none;
+	z-index: 5;
+}
+.list_nav_login {
+	width:12rem;
+	height:3rem;
+	margin-top:1.3rem;
+	background: url(../images/loginhover.png) no-repeat;
+	background-size: 70%;
+}
+.list_nav_bottom img {
+	width: 100%;
+	position: absolute;
+	top:100%;
 }

@@ -1,35 +1,38 @@
 jQuery(document).ready(function($) {
-	$(document).on('mousewheel DOMMouseScroll', function (e) {//绑定滚轮事件
-		
-		e.preventDefault();
+	if($(".nav_bg")[0])
+	{
+		$(document).on('mousewheel DOMMouseScroll', function (e) {//绑定滚轮事件
+			
+			e.preventDefault();
 
-	    //WebKit内核，Trident内核 => mousewheel
-	    //Gecko内核 => DOMMouseScroll
-	    var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;
-	    //e.originalEvent.wheelDelta => 120(up) or -120(down) 谷歌IE内核
-	    //e.originalEvent.detail => -3(up) or 3(down) 火狐内核
-	    var delta = Math.max(-1, Math.min(1, value));
-	   
-	    // alert($(document).height());
-	    if(delta==-1)
-	    {
-	    	$(".nav").show();
-	    	window.scrollBy(0,window.innerHeight);
-	    	if($(document).height()-$(document).scrollTop()-$(window).height()<50)//到底部的时候隐藏nav
-			{
-			$(".nav").hide();
-			}
-	    }
-	    if(delta==1)
-	    {
-	    	$(".nav").show();
-	    	window.scrollBy(0,-window.innerHeight);
-	    }
-	    
-	    var order=parseInt($(window).scrollTop()/window.innerHeight);
-	    tab(order);
-
-	});
+		    //WebKit内核，Trident内核 => mousewheel
+		    //Gecko内核 => DOMMouseScroll
+		    var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+		    //e.originalEvent.wheelDelta => 120(up) or -120(down) 谷歌IE内核
+		    //e.originalEvent.detail => -3(up) or 3(down) 火狐内核
+		    var delta = Math.max(-1, Math.min(1, value));
+		   
+		    // alert($(document).height());
+		    if(delta==-1)
+		    {
+		    	$(".nav").show();
+		    	window.scrollBy(0,window.innerHeight);
+		    	if($(document).height()-$(document).scrollTop()-$(window).height()<50)//到底部的时候隐藏nav
+				{
+				$(".nav").hide();
+				}
+		    }
+		    if(delta==1)
+		    {
+		    	$(".nav").show();
+		    	window.scrollBy(0,-window.innerHeight);
+		    }
+		    
+		    var order=parseInt($(window).scrollTop()/window.innerHeight);
+		    
+		    if(tab)
+		    	tab(order);
+		});
 
 	for (var i=0;i<$(".main_scroll div").length;i++)//给所有右边scroll小圆绑定事件
 		{
@@ -42,33 +45,36 @@ jQuery(document).ready(function($) {
 			})(i);
 		}
 
-	var oNav=$(".nav")[0];
-	var oMove=$(".nav_bg")[0];
-	var oNavA=$(".nav a");
-	var oLogin=$(".nav_login")[0];
-	var judge=$("#waitToRefresh")[0];
-
-	oMove.alpha=0;
-	oMove.timer=null;
-	//导航栏绑定事件
-
-	$(".nav").on('mouseover', function(event) {
-		event.preventDefault();
-		/* Act on the event */
-		if(judge.className!="Refreshed"){
-			navChange(true,oMove,oNavA,oLogin);
+		// 全局变量
+		oNav=$(".nav")[0];
+		oNavA=$(".nav a");
+		oLogin=$(".nav_login")[0];
+		judge=$("#waitToRefresh")[0];
+		
+		if($(".nav_bg")[0]){
+			oMove=$(".nav_bg")[0];
+			oMove.alpha=0;
+			oMove.timer=null;
 		}
-	});
-	$(".nav").on('mouseout', function(event) {
-		event.preventDefault();
-		/* Act on the event */
-		if(judge.className!="Refreshed"){
-			navChange(false,oMove,oNavA,oLogin);
-		}
-	});
+		
+		//导航栏绑定事件
+		$(".nav").on('mouseover', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			if(judge.className!="Refreshed"){
+				navChange(true,oMove,oNavA,oLogin);
+			}
+		});
+		$(".nav").on('mouseout', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			if(judge.className!="Refreshed"){
+				navChange(false,oMove,oNavA,oLogin);
+			}
+		});
+}
 
 	//if(oLogined) logined(oLogined,oNav,oMove,oLogin,oLoginedImg,oLoginedJq);
-
 	if($("#nav_login_a")){
 		$("#nav_login_a").on('click', function(event) {
 			event.preventDefault();

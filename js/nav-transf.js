@@ -25,10 +25,8 @@ function navChange(bool,oMove,oNavA,obj)
 		
 		startFadeBg(oMove,100,function ()	
 		{
-			for(var i=0;i<oNavA.length;i++)
-			{
-				oNavA[i].style.color="#999";
-			}
+			oNavA.removeClass();
+			oNavA.addClass('nav_change');
 			if(obj.className=="nav_login"){
 				obj.style.background="url(images/loginhover.png) no-repeat";
 				obj.style.backgroundSize="70%";
@@ -42,10 +40,8 @@ function navChange(bool,oMove,oNavA,obj)
 		
 		startFadeBg(oMove,0,function ()	
 		{
-			for(var i=0;i<oNavA.length;i++)
-			{
-					oNavA[i].style.color="#fff";
-			}
+			oNavA.removeClass();
+			oNavA.addClass('nav_changed');
 			if(obj.className=="nav_login"){
 				obj.style.background="url(images/login.png) no-repeat";
 				obj.style.backgroundSize="70%";
