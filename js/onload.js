@@ -99,6 +99,7 @@ jQuery(document).ready(function($) {
 		});
 	}
 
+	// 登录的ajax提交
 	$("#loginIn").on('submit', function(event) {
 		event.preventDefault();
 		/* Act on the event */
@@ -142,5 +143,25 @@ jQuery(document).ready(function($) {
 		});
 	});
 
+	if($(".list_main_left_list li"))
+	{
+		for (var i = 0; i < $(".list_main_left_list li").length; i++) {
+			$(".list_main_left_list li")[i].Pindex=i;
+		}
+		$(".list_main_left_list li").bind('click',function(event) {
+			/* Act on the event */
+			$(".list_main_left_list li").css('background-position', '-188px');
+			
+			oPic=$(this)[0];
+
+			$(this).animate({
+				backgroundPosition: '0px',
+				},"fast",function(){
+					$(".list_main_right_content blockquote").hide();
+					
+					$(".list_main_right_content blockquote:eq("+oPic.Pindex+")").fadeIn("fast");
+				})
+			});
+	}
 
 });
