@@ -6,6 +6,12 @@
 	<title>成都理工大学计算机与网络科技协会</title>
 	<link rel="Shortcut icon" href="images/ico.png">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript">
+    	window.onbeforeunload = onbeforeunload_handler;
+    	function onbeforeunload_handler(){
+        	window.scrollTo(0,0);
+    	}
+	</script>
 </head>
 <body>
 <div class="head">
@@ -18,16 +24,18 @@
 			<!-- nav_logo end -->
 			<div class="nav_content">
 				<ul>
-					<li><a href="javascript:">首页</a></li>
-					<li><a href="javascript:">概况</a></li>
-					<li><a href="javascript:">活动</a></li>
-					<li><a href="javascript:">报修</a></li>
-					<li><a href="javascript:">联系我们</a></li>
+					<li><a class="nav_changed" href="index.html">首页</a></li>
+					<li><a class="nav_changed"  href="geS.html">概况</a></li>
+					<li><a class="nav_changed"  href="javascript:">活动</a></li>
+					<li><a class="nav_changed"  href="javascript:">报修</a></li>
+					<li><a class="nav_changed"  href="javascript:">联系我们</a></li>
 				</ul>
 			</div>
 			<!-- nav_content end -->
-			<div class="nav_login">
-				<a id="nav_login_a">登录</a>
+			<div id="waitToRefresh">
+				<div class="nav_login">
+					<a class="nav_changed" id="nav_login_a">登录</a>
+				</div>
 			</div>
 			<!-- nav_login end -->
 			<div class="nav_move">
@@ -140,20 +148,21 @@
 </div>
 <!-- foot end -->
 <div class="copyright">
-	<p>成都理工大学计算机与网络科技协会</p>
-	<p>技术支持:计算机与网络科技协会</p>
+	<p> © 2016 CNTA,Chengdu University of Technology;</p>
+	<p>Powered by<a href="index.html">计算机与网络科技协会</a></p>
 	<p>contact us</p>
 	<div class="copyright_wrap">
-		<img src="images/copyright_1.png" />
-		<img src="images/copyright_2.png" />
-		<img src="images/copyright_3.png" />
-		<img src="images/copyright_4.png" />
+		<a href="javascript:"><img src="images/copyright_1.png" /></a>
+		<a href="javascript:"><img src="images/copyright_2.png" /></a>
+		<a href="javascript:"><img src="images/copyright_3.png" /></a>
+		<a href="javascript:"><img src="images/copyright_4.png" /></a>
+		<a href="javascript:"><img src="images/copyright_5.png" /></a>
 	</div>
 </div>
 <div class="login" style="display:none">
 	<div class="login_cover"></div>
 	<div class="login_open">
-		<form action="Login.php" method="post">
+		<form action="Login.php" method="post" id="loginIn">
 			<i class="login_close"></i>
 			<label class="login_open_label">登录</label>
 			<input type="name"	name="logText" placeholder="学号/邮箱/昵称" class="login_open_name" required="required"/>
@@ -171,8 +180,8 @@
 			<i class="login_close"></i>
 			<label class="login_open_label">请先注册</label>
 			<input type="name"	name="reName"	placeholder="昵称" class="login_open_name" required="required"/>
-			<input type="password"	name="reEmail"	placeholder="邮箱" required="required"/>
-			<input type="text"	name="rePwd"	placeholder="密码"  minlength="6" required="required"/>
+			<input type="text"	name="reEmail"	placeholder="邮箱" required="required"/>
+			<input type="password"	name="rePwd"	placeholder="密码"  minlength="6" required="required"/>
 			<button type="submit">注册</button>
 			<a href="#" id="login_open_in">用已有账号登录</a>
 		</form>
@@ -180,8 +189,8 @@
 </div>
 <!-- login end -->
 <script type="text/javascript" src="js/lib/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="js/onload.js"></script>
 <script type="text/javascript" src="js/nav-transf.js"></script>
 <script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript" src="js/onload.js"></script>
 </body>
 </html>
