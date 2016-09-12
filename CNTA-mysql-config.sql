@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2016-08-31 17:20:18
+-- Generation Time: 2016-09-12 13:22:14
 -- 服务器版本： 5.5.48-log
 -- PHP Version: 5.6.22
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `cnta-repair` (
 CREATE TABLE IF NOT EXISTS `cnta-web-login` (
   `logID` int(10) unsigned NOT NULL,
   `logEmail` varchar(25) NOT NULL,
-  `logPwd` char(32) NOT NULL,
+  `logPwd` char(50) NOT NULL,
   `logName` varchar(25) NOT NULL,
   `logMemID` int(4) DEFAULT NULL,
   `logStuID` bigint(12) NOT NULL,
