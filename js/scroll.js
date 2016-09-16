@@ -5,7 +5,6 @@ function tab(num) {
 		$(".main_scroll div")[i].style.background = "transparent"; //清除所有右圆的背景样式
 	}
 	$(".main_scroll div")[num].style.background = "#fff";
-
 }
 
 function pageTab(watch, obj, callback) { //watch=-1表示向下滚动，watch=1表示向上滚动
@@ -39,10 +38,9 @@ function pageTab(watch, obj, callback) { //watch=-1表示向下滚动，watch=1�
 
 		var speed = (window.innerHeight * i - $(window).scrollTop()) / 5;
 		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-		if($(window).scrollTop()==0)
-		{
-			if(speed<0)
-			{
+
+		if ($(window).scrollTop() == 0) {
+			if (speed < 0) {
 				clearInterval(timer);
 				tab(0);
 			}
@@ -52,7 +50,9 @@ function pageTab(watch, obj, callback) { //watch=-1表示向下滚动，watch=1�
 			clearInterval(timer);
 			tab(i);
 		} else {
-			$(".main_scroll div").css('background', 'transparent');
+			if (i >= 0) {
+				$(".main_scroll div").css('background', 'transparent');
+			}
 			if (obj) {
 
 				if ($(document).height() - $(document).scrollTop() - $(window).height() < 50) //到底部的时候隐藏nav

@@ -32,16 +32,10 @@ jQuery(document).ready(function($) {
 		$(document).bind('keydown', function(event) { //上下键滚动事件
 			/* Act on the event */
 			if (event.keyCode == 40) {
-				pageTab(-1,$(".nav"), function() {
-					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
-					tab(flag);
-				});
+				pageTab(-1,$(".nav"));
 			};
 			if (event.keyCode == 38) {
-				pageTab(1,$(".nav"), function() {
-					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
-					tab(flag);
-				});
+				pageTab(1,$(".nav"));
 			};
 		});
 
