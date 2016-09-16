@@ -792,7 +792,8 @@ body
 {
     width: 100%;
 }
-.list_main_right_content blockquote p {
+.list_main_right_content blockquote p
+{
     text-indent: 2em;
 }
 /*list_copyright begin*/
@@ -847,10 +848,9 @@ body
     padding: 0 4px;
 
     cursor: pointer;
+    animation-delay: 0s;
     text-align: center;
 
     color: #999;
     background: #fff;
-
-    animation-delay: 0s;
 }
