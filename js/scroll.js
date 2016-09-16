@@ -8,8 +8,9 @@ function tab(num) {
 
 }
 
-function pageTab(watch, obj) { //watch=-1表示向下滚动，watch=1表示向上滚动
+function pageTab(watch, obj, oFn) { //watch=-1表示向下滚动，watch=1表示向上滚动
 
+	clearInterval(timer);
 
 	if ($(window).scrollTop() < window.innerHeight) {
 		i = 1;
@@ -34,8 +35,6 @@ function pageTab(watch, obj) { //watch=-1表示向下滚动，watch=1表示向�
 		i = i - 2;
 	}
 
-	clearInterval(timer);
-
 	timer = setInterval(function() {
 
 		var speed = (window.innerHeight * i - $(window).scrollTop()) / 5;
@@ -44,17 +43,17 @@ function pageTab(watch, obj) { //watch=-1表示向下滚动，watch=1表示向�
 			clearInterval(timer);
 			tab(i);
 		} else {
-
-			if ($(document).height() - $(document).scrollTop() - $(window).height() < 50) //到底部的时候隐藏nav
-			{
-				obj.hide();
-			}
-			else{
-				obj.show();
+			if (obj) {
+				if ($(document).height() - $(document).scrollTop() - $(window).height() < 50) //到底部的时候隐藏nav
+				{
+					obj.hide();
+				} else {
+					obj.show();
+				}
 			}
 			window.scrollBy(0, speed);
 		}
 	}, 30)
 
-
+	oFn();
 }

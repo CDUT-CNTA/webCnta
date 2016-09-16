@@ -21,13 +21,34 @@ jQuery(document).ready(function($) {
 			// alert($(document).height());
 			if (delta == -1) {
 
-				pageTab(-1, $(".nav"));
+				pageTab(-1, $(".nav"), function() {
+					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
+					tab(flag);
+				});
 			}
 			if (delta == 1) {
 
-				pageTab(1, $(".nav"));
+				pageTab(1, $(".nav"), function() {
+					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
+					tab(flag);
+				});
 			}
 
+		});
+		$(document).bind('keydown', function(event) { //上下键滚动事件
+			/* Act on the event */
+			if (event.keyCode == 40) {
+				pageTab(-1,$(".nav"), function() {
+					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
+					tab(flag);
+				});
+			};
+			if (event.keyCode == 38) {
+				pageTab(1,$(".nav"), function() {
+					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
+					tab(flag);
+				});
+			};
 		});
 
 		for (var i = 0; i < $(".main_scroll div").length; i++) //给所有右边scroll小圆绑定事件
