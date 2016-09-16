@@ -8,7 +8,7 @@ function tab(num) {
 
 }
 
-function pageTab(watch, obj, oFn) { //watch=-1表示向下滚动，watch=1表示向上滚动
+function pageTab(watch, obj, callback) { //watch=-1表示向下滚动，watch=1表示向上滚动
 
 	clearInterval(timer);
 
@@ -39,11 +39,22 @@ function pageTab(watch, obj, oFn) { //watch=-1表示向下滚动，watch=1表示
 
 		var speed = (window.innerHeight * i - $(window).scrollTop()) / 5;
 		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		if($(window).scrollTop()==0)
+		{
+			if(speed<0)
+			{
+				clearInterval(timer);
+				tab(0);
+			}
+		}
+
 		if (speed == 0) {
 			clearInterval(timer);
 			tab(i);
 		} else {
+			$(".main_scroll div").css('background', 'transparent');
 			if (obj) {
+
 				if ($(document).height() - $(document).scrollTop() - $(window).height() < 50) //到底部的时候隐藏nav
 				{
 					obj.hide();
@@ -55,5 +66,4 @@ function pageTab(watch, obj, oFn) { //watch=-1表示向下滚动，watch=1表示
 		}
 	}, 30)
 
-	oFn();
 }

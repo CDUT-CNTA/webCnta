@@ -21,17 +21,11 @@ jQuery(document).ready(function($) {
 			// alert($(document).height());
 			if (delta == -1) {
 
-				pageTab(-1, $(".nav"), function() {
-					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
-					tab(flag);
-				});
+				pageTab(-1, $(".nav"));
 			}
 			if (delta == 1) {
 
-				pageTab(1, $(".nav"), function() {
-					var flag = Math.floor(($(window).scrollTop() - window.innerHeight) / window.innerHeight) + 1;
-					tab(flag);
-				});
+				pageTab(1, $(".nav"));
 			}
 
 		});
