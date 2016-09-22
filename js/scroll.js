@@ -67,3 +67,10 @@ function pageTab(watch, obj, callback) { //watch=-1表示向下滚动，watch=1�
 	}, 30)
 
 }
+function trans(num) {
+	if(num==0){
+		$(".main_block_top strong").addClass('animated fadeInDown');
+		$(".main_block_top p").addClass('animated flipInX');
+		$(".main_block_text").addClass('animated fadeInDown');
+	}
+}

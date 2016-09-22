@@ -10,8 +10,8 @@ body
 
     overflow-y: hidden;
 
-    min-width: 1180px;
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 /*head begin*/
 .head:after
@@ -52,7 +52,9 @@ body
     top: 0;
     left: 50%;
 
-    width: 1200px;
+    max-width: 120rem;
+    min-width: 70rem;
+    overflow: hidden;
     height: inherit;
     margin: 0 auto;
 
@@ -60,7 +62,7 @@ body
 }
 .nav_logo img
 {
-    width: 4.2vmin;
+    width: 1.6rem;
     margin-left: 30px;
 }
 .nav_content li
@@ -143,11 +145,11 @@ body
 .main
 {
     position: absolute;
-    z-index: -999;
     top: 0;
+    z-index: -999;
 
     width: 100%;
-    height: 500vh;
+    height: 100%;
 }
 .main_block
 {
@@ -157,21 +159,25 @@ body
     overflow: hidden;
 
     width: 100%;
-    height: 20%;
+    height: 100%;
 }
 .main_block_pic
 {
     z-index: -1;
+
+    overflow: hidden;
 
     width: 100%;
     height: 100%;
 }
 .main_block_pic img
 {
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 .main_block_wrap
 {
@@ -179,7 +185,9 @@ body
     top: 30%;
     right: 10%;
 
-    width: 100%;
+    display: block;
+
+    width: 100rem;
 }
 .main_block_top
 {
@@ -205,6 +213,7 @@ body
     font-size: 3rem;
 
     color: #fff;
+    animation-delay: 400ms;
 }
 .main_block_top,
 .main_block_top p,
@@ -231,6 +240,9 @@ body
     min-height: 30vmin;
 
     background: rgba(94,94,94,.5);
+}
+.main_block_text {
+    animation-delay: 1000ms;
 }
 .main_block_text blockquote
 {
@@ -273,12 +285,12 @@ body
 }
 .main_scroll div
 {
-    width: 22px;
-    height: 22px;
-    margin-bottom: 22px;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 16px;
 
     border: 3px #fff solid;
-    border-radius: 50px;
+    border-radius: 100px;
     background-color: transparent; /* Can be set to transparent */
 }
 .main_scroll div:hover
@@ -288,7 +300,7 @@ body
 /*section*/
 .main_sec_wrap
 {
-    right: 30%;
+    right: 20%;
 }
 .main_sec_wrap .main_block_text p
 {
@@ -324,7 +336,7 @@ body
 }
 .main_four_wrap
 {
-    right: 0;
+    right: -10%;
 
     text-align: center;
 }
@@ -380,14 +392,13 @@ body
 /*foot begin*/
 .foot
 {
-    position: relative;
-    top: 400vh;
+    position: absolute;
+    top: 400%;
 
     display: block;
     clear: both;
 
     width: 100%;
-    height: 500px;
     margin: 0 auto;
 }
 .foot div,
@@ -423,8 +434,8 @@ body
 .copyright
 {
     position: absolute;
-    bottom: -400vh;
-
+    top:500%;
+    transform: translateY(-100%);
     display: block;
     clear: both;
 
@@ -650,7 +661,6 @@ body
 .list_nav
 {
     position: absolute;
-    top: 0;
 }
 .list_nav_content li
 {
@@ -799,8 +809,9 @@ body
 /*list_copyright begin*/
 .list_copyright
 {
+    overflow: hidden;
     position: relative;
-    bottom: 0;
+    transform: translateY(0);
 
     display: block;
 

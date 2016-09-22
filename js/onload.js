@@ -6,6 +6,8 @@ jQuery(document).ready(function($) {
 	oLogin = $(".nav_login")[0];
 	judge = $("#waitToRefresh")[0];
 
+	$(".foot").height($(window).height()-$(".copyright").height());
+	var temp = $(".copyright").css('top');
 	if ($(".nav_bg")[0]) {
 		$(document).on('mousewheel DOMMouseScroll', function(e) { //绑定滚轮事件
 
@@ -32,10 +34,10 @@ jQuery(document).ready(function($) {
 		$(document).bind('keydown', function(event) { //上下键滚动事件
 			/* Act on the event */
 			if (event.keyCode == 40) {
-				pageTab(-1,$(".nav"));
+				pageTab(-1, $(".nav"));
 			};
 			if (event.keyCode == 38) {
-				pageTab(1,$(".nav"));
+				pageTab(1, $(".nav"));
 			};
 		});
 
@@ -48,6 +50,7 @@ jQuery(document).ready(function($) {
 					tab(ii);
 				}
 			})(i);
+
 		}
 
 		if ($(".nav_bg")[0]) {
