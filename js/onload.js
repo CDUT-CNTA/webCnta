@@ -157,6 +157,7 @@ jQuery(document).ready(function($) {
 			/* Act on the event */
 
 			if ($(this).attr('tag') == "1") return;
+			if (($(this).attr('zNum')==0)&&($(".list_main_right_content_List").css('display')=='block')) return;
 
 			$(".list_main_left_list li").css('background-position', '-188px');
 			$(".list_main_left_list li").attr('zNum', '1');
@@ -187,6 +188,8 @@ jQuery(document).ready(function($) {
 	if ($(".list_main_right_content_List")) {
 		$("#actClick").bind('click', function(event) {
 			/* Act on the event */
+			if($(".list_main_right_content_List ul li").attr("class")=="animated flipInY") return ;
+			
 			if ($(".list_main_right_content_List ul li:eq(3)").attr('class') != "animated flipInY") {
 				for (var i = 0; i < $(".list_main_right_content_List ul li").length; i++) {
 					delay = i * 100;
