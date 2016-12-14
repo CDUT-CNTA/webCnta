@@ -6,7 +6,8 @@ jQuery(document).ready(function($) {
 	oLogin = $(".nav_login")[0];
 	judge = $("#waitToRefresh")[0];
 
-	$(".foot").height($(window).height()-$(".copyright").height());
+
+	$(".foot").height($(window).height() - $(".copyright").height());
 	var temp = $(".copyright").css('top');
 	if ($(".nav_bg")[0]) {
 		$(document).on('mousewheel DOMMouseScroll', function(e) { //绑定滚轮事件
@@ -155,9 +156,8 @@ jQuery(document).ready(function($) {
 		$(".list_main_left_list li").bind('click', function(event) {
 			/* Act on the event */
 
-			if ($(this).attr('tag')) {
-				if ($(this).attr('tag') == "1") return;
-			}
+			if ($(this).attr('tag') == "1") return;
+
 			$(".list_main_left_list li").css('background-position', '-188px');
 			$(".list_main_left_list li").attr('zNum', '1');
 
@@ -171,7 +171,6 @@ jQuery(document).ready(function($) {
 
 				$(".list_main_right_content blockquote:eq(" + oPic.Pindex + ")").fadeIn("fast");
 			})
-
 		});
 
 		//圆角矩形移入移出
@@ -225,6 +224,19 @@ jQuery(document).ready(function($) {
 				'background': '#ff6060'
 			});
 			this.tag = 0;
+
+			// 右侧内容更改
+			for (var i = 0; i < $(".list_main_right_content_List ul li").length; i++) {
+				$(".list_main_right_content_List ul li")[i].Pindex = i + 1;
+			}
+
+			$(".list_main_right_content blockquote").hide();
+
+			oPic = $(this)[0];
+
+			$(".list_main_right_content blockquote:eq(" + oPic.Pindex + ")").fadeIn("fast");
+
+			event.stopPropagation();
 		});
 		$(".list_main_right_content_List ul li").bind('mouseover', function(event) {
 			/* Act on the event */
@@ -242,22 +254,6 @@ jQuery(document).ready(function($) {
 					'background': '#fff'
 				});
 			}
-		});
-
-		// 小栏绑定事件
-		$(".list_main_right_content_List ul li").bind('click', function(event) {
-			/* Act on the event */
-
-			for (var i = 0; i < $(".list_main_right_content_List ul li").length; i++) {
-				$(".list_main_right_content_List ul li")[i].Pindex = i + 1;
-			}
-
-			$(".list_main_right_content blockquote").hide();
-
-			oPic = $(this)[0];
-
-			$(".list_main_right_content blockquote:eq(" + oPic.Pindex + ")").fadeIn("fast");
-			event.stopPropagation();
 		});
 	}
 
