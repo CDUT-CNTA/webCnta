@@ -8,7 +8,7 @@ body
     font-family: 'Century Gothic','Lucida Grande','Microsoft YaHei','Trebuchet MS',Helvetica,Georgia,sans-serif;
     font-size: 1rem;
 
-    overflow-y: hidden;
+    overflow-y: hidden;list_main_right_content
 
     width: 100%;
     height: 100%;
@@ -590,6 +590,10 @@ body
 
     text-align: center;
 }
+/*when login success*/
+.Refreshed {
+    padding-right: 20px;
+}
 /*backward begin*/
 .nav_logined img
 {
@@ -705,7 +709,7 @@ body
 {
     float: left;
 
-    width: 20%;
+    width: 20%;list_main_right_content
     height: inherit;
     min-height: 500px;
 }
@@ -797,6 +801,10 @@ body
 .list_main_right_content blockquote p
 {
     text-indent: 2em;
+}
+.list_main_right_content .author,
+.list_main_right_content .releaseTime{
+    text-align: right;
 }
 /*list_copyright begin*/
 .list_copyright

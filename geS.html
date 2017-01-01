@@ -97,12 +97,12 @@
 <div class="login" style="display:none">
 	<div class="login_cover"></div>
 	<div class="login_open">
-		<form action="Login.php" method="post" id="loginIn">
+		<form id="loginIn">
 			<i class="login_close"></i>
 			<label class="login_open_label">登录</label>
 			<input type="name"	name="logText" placeholder="学号/邮箱/昵称" class="login_open_name" required="required"/>
 			<input type="password"	name="logPwd"	placeholder="密码" minlength="6" required="required"/>
-			<button type="submit">登录</button>
+			<button type="submit" id="ajaxLogin">登录</button>
 			<a href="#">忘记密码?</a>
 			<a class="login_open_sign" href="#" id="sign_open_in">注册账户</a>
 			<p>计协会员初次登录密码默认为手机号
@@ -125,7 +125,8 @@
 <!-- login end -->
 <script type="text/javascript" src="js/lib/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/onload.js"></script>
+<script type="text/javascript" src="js/left_list.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/list-rec-move.js"></script>
 </body>
 </html>

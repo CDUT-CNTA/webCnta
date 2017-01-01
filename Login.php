@@ -34,13 +34,22 @@
 
     $sql = "SELECT `logID`, `logEmail`, `logPwd`, `logName` FROM `cnta-web-login` WHERE `logEmail` = '".$_POST['logText']."' AND `logPwd` = '".$_POST['logPwd']."'";
     
-    $res = mysqli_query( $link, $sql);
+    $res = mysqli_query($link,$sql);
 
-    $logInfo = mysqli_fetch_assoc( $res);
+    $logInfo = mysqli_fetch_assoc($res);
 
     if( mysqli_num_rows( $res) == 1 ){
-            echo "登陆成功";
-
+            echo <<< success
+            <div class='nav_logined'>
+                <a href='#'><img src='images/logged.png'/></a>
+            </div>
+            <div class="nav_logined_group">
+                <ul>
+                    <li><a href="#">设置</a></li>
+                    <li><a href="#">登出</a></li>
+                </ul>
+            </div>
+success;
     }else{
         echo "用户名或密码错误，请重新登陆。";
     }

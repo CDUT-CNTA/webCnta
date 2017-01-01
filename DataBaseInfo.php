@@ -5,11 +5,11 @@
 define('DB_HOST', 'localhost');
 
 //用户名
-define('DB_USER', '');
+define('DB_USER', 'root');
 
 //口令
 define('DB_PASSWORD', '');
 
 //数据库名
-define('DB_NAME','') ;
+define('DB_NAME','cnta') ;
 ?>
