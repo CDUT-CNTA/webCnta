@@ -55,18 +55,27 @@
 		<div class="list_main_left_list acT_main_left_list">
 			<h2>View by</h2>
 			<ul>
-				<li style="background-position:0px 50%;" zNum="0"><p id="checkClick">近期活动</p></li>
-				<li style="background-position:-188px 50%;" zNum="1">
-					<p id="actClick">往期活动</p>
+				<li>
+					<p class="actList" style="background-position:0px 50%;" data-znum="2">近期活动</p>
 					<div class="list_main_right_content_List">
 	  					<ul>
-	  						<li tag="1" class="animated" style="color:#fff;background:#ff6060">会员见面大会</li>
-	  						<li tag="1" class="animated">电脑义诊</li>
-	  						<li tag="1" class="animated">会员培训</li>
-	  						<li tag="1" class="animated">协会内部辩论赛</li>
-	  						<li tag="1" class="animated">趣味运动会</li>
-	  						<li tag="1" class="animated">联谊晚会</li>
-	  						<li tag="1" class="animated">第三届技能大赛</li>
+	  						<li data-tag="1" class="animated">test1</li>
+	  						<li data-tag="1" class="animated">test2</li>
+	  						<li data-tag="1" class="animated">test3</li>
+	  					</ul>
+	  				</div>
+				</li>
+				<li>
+					<p class="actList" style="background-position:-188px 50%;" data-znum="0">往期活动</p>
+					<div class="list_main_right_content_List">
+	  					<ul>
+	  						<li data-tag="1" class="animated">会员见面大会</li>
+	  						<li data-tag="1" class="animated">电脑义诊</li>
+	  						<li data-tag="1" class="animated">会员培训</li>
+	  						<li data-tag="1" class="animated">协会内部辩论赛</li>
+	  						<li data-tag="1" class="animated">趣味运动会</li>
+	  						<li data-tag="1" class="animated">联谊晚会</li>
+	  						<li data-tag="1" class="animated">第三届技能大赛</li>
 	  					</ul>
 	  				</div>
 				</li>
@@ -79,9 +88,19 @@
 		<div class="list_main_right_content">
 			<blockquote style="display:block;">
 				<img src="images/list_main_right_content.jpg" />
-				<p class="waitOnto">即将上线，敬请期待</p>
+				<p class="waitOnto">test1</p>
 	  		</blockquote>
 	  		<blockquote style="display:none;">
+				<img src="images/list_main_right_content.jpg" />
+				<p class="waitOnto">test2</p>
+	  		</blockquote>
+	  		<blockquote style="display:none;">
+				<img src="images/list_main_right_content.jpg" />
+				<p class="waitOnto">test3</p>
+	  		</blockquote>
+	  	</div>
+	  	<div class="list_main_right_content">
+	  		<blockquote style="display:none">
 				<div class="title"><h3>会员见面大会</h3></div>
     			<div class="content">时间：2015年10月24日上午<br>地点：6教C座105<br>
 	    			<p>会员大会每年换届通过招进新会员就会举办一次，让新会员们能够更加具体的了解我们计算机与网络科技协会。而本次大会通过以主持人解读及PPT演示等不同的形式向新会员介绍我们协会的历史背景和主要活动，以及展示协会各部门的职能，让会员们更加具体的了解我们计算机与网络科技协会及这个大家庭，同时也体现了我们协会内部的凝聚力和团结创新的精神，并在会员们心中树立良好的协会形象，提高协会声誉，为协会以后的发展奠定坚实的基础。</p>
@@ -217,8 +236,8 @@
 <!-- login end -->
 <script type="text/javascript" src="js/lib/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/recMouseMove.js"></script>
 <script type="text/javascript" src="js/left_list.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/list-rec-move.js"></script>
 </body>
 </html>

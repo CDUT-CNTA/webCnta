@@ -8,11 +8,12 @@ body
     font-family: 'Century Gothic','Lucida Grande','Microsoft YaHei','Trebuchet MS',Helvetica,Georgia,sans-serif;
     font-size: 1rem;
 
-    overflow-y: hidden;list_main_right_content
+    overflow-y: hidden;
 
     width: 100%;
     height: 100%;
 }
+
 /*head begin*/
 .head
 {
@@ -709,7 +710,7 @@ body
 {
     float: left;
 
-    width: 20%;list_main_right_content
+    width: 20%;
     height: inherit;
     min-height: 500px;
 }
@@ -736,22 +737,22 @@ body
     line-height: 4rem;
 
     width:190px;
-    height: 4rem;
+    min-height: 4rem;
     text-align: right;
 
     list-style: none;
-
-    background: url(../images/list_main_left_bg.png) no-repeat;
+    overflow: hidden;
 }
 .list_main_left_list ul li p
 {
     display: block;
 
-    width: 30%;
-    float: right;
-    padding-right: 10px;
+    width: 100%;
+    text-align: center;
+    text-indent: 3em;
 
     cursor: pointer;
+    background: url(../images/list_main_left_bg.png) no-repeat;
 }
 /*list_main_right begin*/
 .list_main_right
@@ -844,13 +845,11 @@ body
 }
 .list_main_right_content_List
 {
+    display: none;
     font-size: 1rem;
+    margin-left: 50px;
 }
-.list_main_right_content_List ul{
-    float: right;
-    min-width: 150px;
-}
-.list_main_right_content_List ul li
+.list_main_right_content_List ul > li
 {
     line-height: 2.5rem;
 
@@ -859,7 +858,6 @@ body
     width: 100%;
     height: 2.5rem;
     margin: 4px 0;
-    margin-left: 15px;
     padding: 0 4px;
 
     cursor: pointer;
@@ -869,7 +867,7 @@ body
     color: #999;
     background: #fff;
 }
-
+/*媒体查询*/
 @media screen and (max-width: 1063px){
     .list_main_left {
         display: none;

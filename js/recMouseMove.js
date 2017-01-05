@@ -1,9 +1,9 @@
-function recMouseMove(tag,obj) {
+function recMouseMove(tag,obj) {	//圆角矩形移入移出函数
 	/* Act on the event */
-	if(obj.attr('zNum')=='0'){return;}
+
+	if(obj.data('znum') == '1'|| obj.data('znum') == '2'){return;}
 	if(tag==true)
 	{
-		obj.attr('zNum','1');
 		obj.stop().animate({
 		backgroundPosition: '0px',
 		},"fast");
